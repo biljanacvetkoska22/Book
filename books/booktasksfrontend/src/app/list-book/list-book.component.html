@@ -1,0 +1,54 @@
+<h4>Create Book</h4>
+<div style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Author</label>
+            <input type="text" class="form-control" id="author" required [(ngModel)]="book.author" name="author">
+        </div>
+
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" id="title" required [(ngModel)]="book.title" name="title">
+        </div>
+
+        <div class="form-group">
+            <label>Notes</label>
+            <input type="text" class="form-control" id="notes" required [(ngModel)]="book.notes" name="notes">
+        </div>
+
+        <div class="form-group">
+            <label>Published</label>
+            <input type="text" class="form-control" id="published" required [(ngModel)]="book.published" name="published">
+        </div>
+
+        <button type="submit" class="btn btn-success">Add</button>
+    </form>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>BookTasks</h4>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Author</th>
+                <th>Titles</th>
+                <th>Notes</th>
+                <th>Published</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let book of books | async">
+                <td>{{book.id}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.notes}}</td>
+                <td>{{book.published}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
